@@ -21,8 +21,9 @@ module Gif
 
     private
 
+# https://api.giphy.com/v1/gifs/search?api_key=NC8kOxUoGiQZ5cor2YJV8MLrm1vlxLWY&q=cats&limit=25&offset=0&rating=G&lang=en
     def generate_url
-      fetch_url     = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=#{@tags}"
+      fetch_url     = "https://api.giphy.com/v1/gifs/search?api_key=NC8kOxUoGiQZ5cor2YJV8MLrm1vlxLWY&q=cats&limit=25&offset=0&rating=G&lang=en&tag=#{@tags}"
       gif_json      = JSON.parse `curl -s '#{fetch_url}'`
       original_url  = gif_json["data"]["image_original_url"]
       fixed_height_url = gif_json["data"]["fixed_height_small_url"]
